@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+.main {
+    width: 100%;
+    height: 100vh;
+    background: url('https://www.pixelstalk.net/wp-content/uploads/images6/Time-Wallpaper-HD-Free-download.jpg') center center;
+    background-size: cover;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.title {
+    margin-top: 10px;
+    color: rgb(79, 92, 111);
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.col {
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.col div {
+    width: 250px;
+    text-align: center;
+}
+
+input {
+    width: 50%;
+    background-color:grey;
+    border-color: transparent;
+    border-radius: 5px;
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+label{
+    color: grey;
+    font-style: italic;
+}
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="overlay">
+            <div class="title">CountDown Timer for:</div>
+            <div class="title" id="end-date"></div>
+            <div class="col">
+                <div>
+                    <input type="text" readonly value="0">
+                    <br/>
+                    <label for="">Days</label>
+                </div>
+                <div>
+                    <input type="text" readonly value="0">
+                    <br/>
+                    <label for="">Hours</label>
+                </div>
+                <div>
+                    <input type="text" readonly value="0">
+                    <br/>
+                    <label for="">Minutes</label>
+                </div>
+                <div>
+                    <input type="text" readonly value="0">
+                    <br/>
+                    <label for="">Seconds</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const date = prompt("Enter date in dd/month/yyyy format eg. 23 may 2022");
+        const var1 = document.getElementById('end-date');
+        var1.innerText = date;
+        const endDate = date;
+        const inputs = document.querySelectorAll('input');
+        
+       setInterval(()=>{
+        
+            const end = new Date(endDate);
+            const now = new Date();
+            const diff = (end-now) / 1000;
+            if(diff<0) return;
+            inputs[0].value = Math.floor(diff/3600/24);
+            inputs[1].value = Math.floor(diff/3600)%24;
+            inputs[2].value = Math.floor(diff/60)%60;
+            inputs[3].value = Math.floor(diff)%60;
+       },1000);
+    </script>
+</body>
+
+</html>
