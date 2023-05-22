@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    transition: 2s;
+}
+.main{
+    background-color: #f3f86f;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 700px;
+    height: 90px;
+    border: 2px solid white;
+    background-color: beige;
+    border-radius: 12px;
+    box-shadow: 2px 1px 15px black;
+    text-align: center;
+}
+h2{
+    padding-top: 5px;
+    color: black;
+}
+
+button{
+ width: 20%;
+ height: 40%;
+ border-radius: 99px;
+ box-shadow: 2px 2px 2px red;
+}
